@@ -1,0 +1,51 @@
+type User {
+  id: ID!
+  avatar: String!
+  username: String! @unique
+  email: String! @unique
+  bio: String
+  following: [User!]!
+  followers: [User!]!
+  posts: [Post!]!
+  likes: [Like!]!
+  comments: [Comment!]!
+  loginSecret: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Post {
+  id: ID!
+  caption: String!
+  user: User!
+  words: [Word!]!
+  likes: [Like!]!
+  comments: [Comment!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Like {
+  id: ID!
+  user: User!
+  post: Post!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Comment {
+  id: ID!
+  text: String!
+  user: User!
+  post: Post!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Word {
+  id: ID!
+  word: String!
+  post: Post!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
