@@ -1,17 +1,22 @@
 type User {
   id: ID!
   avatar: String!
-  username: String! @unique
-  email: String! @unique
+  username: String!
+  email: String!
+  isFollowing: Boolean!
+  isSelf: Boolean!
   bio: String
   following: [User!]!
+  followingCount: Int!
   followers: [User!]!
+  followersCount: Int!
   posts: [Post!]!
+  postsCount: Int!
   likes: [Like!]!
   comments: [Comment!]!
   loginSecret: String
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  createdAt: String
+  updatedAt: String
 }
 
 type Post {
@@ -21,16 +26,19 @@ type Post {
   words: [Word!]!
   likes: [Like!]!
   comments: [Comment!]!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  isLiked: Boolean!
+  likeCount: Int!
+  commentCount: Int!
+  createdAt: String
+  updatedAt: String
 }
 
 type Like {
   id: ID!
   user: User!
   post: Post!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  createdAt: String
+  updatedAt: String
 }
 
 type Comment {
@@ -38,14 +46,14 @@ type Comment {
   text: String!
   user: User!
   post: Post!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  createdAt: String
+  updatedAt: String
 }
 
 type Word {
   id: ID!
-  word: String!
+  text: String!
   post: Post!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  createdAt: String
+  updatedAt: String
 }

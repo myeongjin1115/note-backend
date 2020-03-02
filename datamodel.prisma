@@ -47,7 +47,7 @@ type Comment {
 
 type Word {
   id: ID! @id
-  word: String!
+  text: String!
   post: Post! @relation(name: "FilesOfPost")
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
